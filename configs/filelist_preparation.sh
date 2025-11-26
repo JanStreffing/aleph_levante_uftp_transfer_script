@@ -17,7 +17,7 @@ CASE_NAME="TCo1279-DART-1950C"
 FREQ="3h"
 
 # Paths on Levante (source) and Aleph (destination)
-REMOTE_BASE="/work/ab0246/from_aleph/${CASE_NAME}/outdata/oifs"
+REMOTE_BASE="/work/ab0995/ICCP_AWI_hackthon_2025/${CASE_NAME}/outdata/oifs"
 LOCAL_BASE="/scratch/awicm3/${CASE_NAME}//outdata/oifs"
 
 # Variables to process (edit this list as needed)
