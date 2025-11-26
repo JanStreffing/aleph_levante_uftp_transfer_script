@@ -1,0 +1,40 @@
+# UFTP Transfer Configuration
+# Define multiple transfer blocks, each with its own source and destination
+
+transfers:
+  # First transfer block: OASIS grid files
+  - name: "OASIS Grid Files"
+    remote_base: "/work/ab0246/a270092/input/oasis/cy48r1"
+    local_dir: "/proj/awi/download/oasis/grids"
+    files:
+      - "TCO319-D3/1280/grids.nc"
+      - "TCO319-D3/1280/masks.nc"
+      - "TCO319-D3/1280/areas.nc"
+  
+  # Second transfer block: Remapping files
+  - name: "Remapping Weights"
+    remote_base: "/work/ab0246/a270092/input/oasis/cy48r1/TCO319-D3/1280"
+    local_dir: "/proj/awi/download/oasis/remap"
+    files:
+      - "rmp_R320_to_RnfA_GAUSWGT.nc"
+      - "rmp_A320_to_feom_GAUSWGT.nc"
+      - "rmp_feom_to_R320_GAUSWGT.nc"
+  
+  # Third transfer block: Model output
+  - name: "Model Output Files"
+    remote_base: "/work/ab0246/a270092/output/experiment_001"
+    local_dir: "/proj/awi/download/exp001"
+    files:
+      - "atm/data_2020_01.nc"
+      - "atm/data_2020_02.nc"
+      - "ocn/ocean_2020_01.nc"
+      - "ocn/ocean_2020_02.nc"
+
+# Notes:
+# - Each transfer block is independent
+# - remote_base: Base directory on Levante (absolute path)
+# - local_dir: Destination directory on local system (absolute path)
+# - files: List of files relative to remote_base
+#   (subdirectories in file paths will be created automatically)
+# - All files are verified with MD5 checksums after transfer
+
