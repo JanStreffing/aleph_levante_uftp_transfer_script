@@ -6,15 +6,15 @@
 #========================================================================================
 
 # Parse command line arguments
-START_YEAR=${1:-1950}
-END_YEAR=${2:-1969}
-OUTPUT_FILE=${3:-"transfer_config_custom.yaml"}
+START_YEAR=${1:-2080}
+END_YEAR=${2:-2092}
+OUTPUT_FILE=${3:-"transfer_config_TCo1279-DART-2080C_AG.yaml"}
 
 # Configuration ===========================================================================
 
 # Case names (edit these for your case)
-ICASE_NAME="TCo1279-DART-1950C"
-CASE_NAME="TCo1279-DART-1950C"
+ICASE_NAME="TCo1279-DART-2080C"
+CASE_NAME="TCo1279-DART-2080C"
 FREQ="3h"
 
 # Paths on Levante (source) and Aleph (destination)
@@ -23,7 +23,7 @@ LOCAL_BASE="/scratch/awicm3/${CASE_NAME}//outdata/oifs"
 
 # Variables to process (edit this list as needed)
 VARIABLES=(
-    "2t" "10u"
+    "2t" "10u" "10v" "lsp" "cp" "hcc" "mcc" "lcc" "tcc"
 )
 
 # Option: Specify only certain variables
