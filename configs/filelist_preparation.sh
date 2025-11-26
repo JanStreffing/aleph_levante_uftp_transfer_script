@@ -1,3 +1,4 @@
+                                                                                                                                                                                                                                                                                                                                                                  8,21          Top
 #!/bin/bash
 #========================================================================================
 # Generate transfer_config.yaml from OIFS file patterns - Customizable version
@@ -43,6 +44,7 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
 Usage: $0 [start_year] [end_year] [output_file]
 
 Generate transfer_config.yaml for OIFS atmospheric data files.
+Files are checked for existence - only existing files are added to the config.
 
 Arguments:
   start_year   Starting year (default: 2089)
@@ -81,15 +83,17 @@ echo "Output:      ${OUTPUT_FILE}"
 echo ""
 
 TOTAL_FILES=$((${#VARIABLES[@]} * (${END_YEAR} - ${START_YEAR} + 1) * ${#MONTHS[@]}))
-echo "Total files to transfer: ${TOTAL_FILES}"
+echo "Expected files: ${TOTAL_FILES}"
 echo ""
 echo "Generating ${OUTPUT_FILE}..."
+echo "Checking file existence..."
+echo ""
 
 # Write header
 cat > "${OUTPUT_FILE}" << EOF
 # UFTP Transfer Configuration
 # Auto-generated for OIFS atmospheric data
-# 
+#
 # Case: ${CASE_NAME}
 # Frequency: ${FREQ}
 # Years: ${START_YEAR}-${END_YEAR}
@@ -98,10 +102,15 @@ cat > "${OUTPUT_FILE}" << EOF
 transfers:
 EOF
 
+# Initialize file counters
+TOTAL_FILES_CHECKED=0
+TOTAL_FILES_FOUND=0
+TOTAL_FILES_MISSING=0
+
 # Loop through each variable
 VAR_COUNT=0
 for VAR in "${VARIABLES[@]}"; do
-    
+
     ((VAR_COUNT++))
     echo "  [$VAR_COUNT/${#VARIABLES[@]}] Processing variable: ${VAR}"
     
@@ -115,18 +124,35 @@ for VAR in "${VARIABLES[@]}"; do
     files:
 EOF
     
+    VAR_FILES_FOUND=0
+    VAR_FILES_MISSING=0
+    
     # Loop through years and months to generate file list
     for ((YEAR=${START_YEAR}; YEAR<=${END_YEAR}; YEAR++)); do
-        for MONTH in "${MONTHS[@]}"; do
+        for MONTH in 01 02 03 04 05 06 07 08 09 10 11 12; do
             
             # Construct filename
             FILE="atm_reduced_${FREQ}_${VAR}_${FREQ}_${YEAR}${MONTH}-${YEAR}${MONTH}.nc"
+            FULL_PATH="${LOCAL_BASE}/${FILE}"
             
-            # Add to YAML
-            echo "      - \"${FILE}\"" >> "${OUTPUT_FILE}"
+            ((TOTAL_FILES_CHECKED++))
+            
+            # Check if file exists
+            if [ -f "${FULL_PATH}" ]; then
+                # Add to YAML only if file exists
+                echo "      - \"${FILE}\"" >> "${OUTPUT_FILE}"
+                ((VAR_FILES_FOUND++))
+                ((TOTAL_FILES_FOUND++))
+            else
+                ((VAR_FILES_MISSING++))
+                ((TOTAL_FILES_MISSING++))
+                echo "  WARNING: Missing file: ${FULL_PATH}" >&2
+            fi
             
         done
     done
+    
+    echo "  → Found: ${VAR_FILES_FOUND}, Missing: ${VAR_FILES_MISSING}"
     
 done
 
@@ -138,16 +164,16 @@ cat >> "${OUTPUT_FILE}" << EOF
 # ============================================================================
 # Case:         ${CASE_NAME}
 # Frequency:    ${FREQ}
-# Years:        ${START_YEAR} to ${END_YEAR} (${END_YEAR} - ${START_YEAR} + 1) years)
+# Years:        ${START_YEAR} to ${END_YEAR} ($((${END_YEAR} - ${START_YEAR} + 1)) years)
 # Variables:    ${#VARIABLES[@]}
 # Months/year:  ${#MONTHS[@]}
-# Total files:  ${TOTAL_FILES}
-# 
+# Files checked: ${TOTAL_FILES_CHECKED}
+# Files found:   ${TOTAL_FILES_FOUND} (included in config)
+# Files missing: ${TOTAL_FILES_MISSING} (skipped)
+#
 # Source:       ${REMOTE_BASE}
 # Destination:  ${LOCAL_BASE}
-# 
-# Estimated size: ~${TOTAL_FILES} files × avg_size
-# 
+#
 # ============================================================================
 # To transfer these files:
 # ============================================================================
@@ -156,7 +182,7 @@ cat >> "${OUTPUT_FILE}" << EOF
 #    - Set CONFIG_FILE="${OUTPUT_FILE}"
 #    - Set UFTP_USER and UFTP_KEY
 # 3. Run: ./uftp_transfer_with_verify.sh
-# 
+#
 # Or manually specify config file:
 #    sed -i 's/CONFIG_FILE=.*/CONFIG_FILE="${OUTPUT_FILE}"/' uftp_transfer_with_verify.sh
 # ============================================================================
@@ -164,12 +190,23 @@ EOF
 
 echo ""
 echo "=========================================="
-echo "✓ Configuration generated successfully!"
+if [ ${TOTAL_FILES_MISSING} -eq 0 ]; then
+    echo "✓ Configuration generated successfully!"
+else
+    echo "⚠ Configuration generated with warnings!"
+fi
 echo "=========================================="
 echo ""
-echo "Output file:  ${OUTPUT_FILE}"
-echo "Total files:  ${TOTAL_FILES}"
+echo "Output file:    ${OUTPUT_FILE}"
+echo "Files checked:  ${TOTAL_FILES_CHECKED}"
+echo "Files found:    ${TOTAL_FILES_FOUND} (added to config)"
+echo "Files missing:  ${TOTAL_FILES_MISSING} (skipped)"
 echo ""
+if [ ${TOTAL_FILES_MISSING} -gt 0 ]; then
+    echo "⚠ WARNING: ${TOTAL_FILES_MISSING} files were not found and were skipped."
+    echo "  Check the warnings above for details."
+    echo ""
+fi
 echo "File size: $(wc -l < "${OUTPUT_FILE}") lines, $(du -h "${OUTPUT_FILE}" | cut -f1)"
 echo ""
 echo "Next steps:"
