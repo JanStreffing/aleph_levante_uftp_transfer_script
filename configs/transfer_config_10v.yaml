@@ -1,0 +1,107 @@
+# UFTP Transfer Configuration
+# Auto-generated for OIFS atmospheric data
+#
+# Case: TCo1279-DART-1950C
+# Frequency: 3h
+# Years: 1950-1969
+# Generated: Wed Nov 26 14:26:52 KST 2025
+
+transfers:
+
+  # Variable 1/1: 10v
+  - name: "OIFS 3h - 10v (1950-1969)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo1279-DART-1950C/outdata/oifs"
+    local_dir: "/scratch/awicm3/TCo1279-DART-1950C//outdata/oifs/"
+    files:
+      - "atm_reduced_3h_10v_3h_196409-196409.nc"
+      - "atm_reduced_3h_10v_3h_196410-196410.nc"
+      - "atm_reduced_3h_10v_3h_196411-196411.nc"
+      - "atm_reduced_3h_10v_3h_196412-196412.nc"
+      - "atm_reduced_3h_10v_3h_196501-196501.nc"
+      - "atm_reduced_3h_10v_3h_196502-196502.nc"
+      - "atm_reduced_3h_10v_3h_196503-196503.nc"
+      - "atm_reduced_3h_10v_3h_196504-196504.nc"
+      - "atm_reduced_3h_10v_3h_196505-196505.nc"
+      - "atm_reduced_3h_10v_3h_196506-196506.nc"
+      - "atm_reduced_3h_10v_3h_196507-196507.nc"
+      - "atm_reduced_3h_10v_3h_196508-196508.nc"
+      - "atm_reduced_3h_10v_3h_196509-196509.nc"
+      - "atm_reduced_3h_10v_3h_196510-196510.nc"
+      - "atm_reduced_3h_10v_3h_196511-196511.nc"
+      - "atm_reduced_3h_10v_3h_196512-196512.nc"
+      - "atm_reduced_3h_10v_3h_196601-196601.nc"
+      - "atm_reduced_3h_10v_3h_196602-196602.nc"
+      - "atm_reduced_3h_10v_3h_196603-196603.nc"
+      - "atm_reduced_3h_10v_3h_196604-196604.nc"
+      - "atm_reduced_3h_10v_3h_196605-196605.nc"
+      - "atm_reduced_3h_10v_3h_196606-196606.nc"
+      - "atm_reduced_3h_10v_3h_196607-196607.nc"
+      - "atm_reduced_3h_10v_3h_196608-196608.nc"
+      - "atm_reduced_3h_10v_3h_196609-196609.nc"
+      - "atm_reduced_3h_10v_3h_196610-196610.nc"
+      - "atm_reduced_3h_10v_3h_196611-196611.nc"
+      - "atm_reduced_3h_10v_3h_196612-196612.nc"
+      - "atm_reduced_3h_10v_3h_196701-196701.nc"
+      - "atm_reduced_3h_10v_3h_196702-196702.nc"
+      - "atm_reduced_3h_10v_3h_196703-196703.nc"
+      - "atm_reduced_3h_10v_3h_196704-196704.nc"
+      - "atm_reduced_3h_10v_3h_196705-196705.nc"
+      - "atm_reduced_3h_10v_3h_196706-196706.nc"
+      - "atm_reduced_3h_10v_3h_196707-196707.nc"
+      - "atm_reduced_3h_10v_3h_196708-196708.nc"
+      - "atm_reduced_3h_10v_3h_196709-196709.nc"
+      - "atm_reduced_3h_10v_3h_196710-196710.nc"
+      - "atm_reduced_3h_10v_3h_196711-196711.nc"
+      - "atm_reduced_3h_10v_3h_196712-196712.nc"
+      - "atm_reduced_3h_10v_3h_196801-196801.nc"
+      - "atm_reduced_3h_10v_3h_196802-196802.nc"
+      - "atm_reduced_3h_10v_3h_196803-196803.nc"
+      - "atm_reduced_3h_10v_3h_196804-196804.nc"
+      - "atm_reduced_3h_10v_3h_196805-196805.nc"
+      - "atm_reduced_3h_10v_3h_196806-196806.nc"
+      - "atm_reduced_3h_10v_3h_196807-196807.nc"
+      - "atm_reduced_3h_10v_3h_196808-196808.nc"
+      - "atm_reduced_3h_10v_3h_196809-196809.nc"
+      - "atm_reduced_3h_10v_3h_196810-196810.nc"
+      - "atm_reduced_3h_10v_3h_196811-196811.nc"
+      - "atm_reduced_3h_10v_3h_196812-196812.nc"
+      - "atm_reduced_3h_10v_3h_196901-196901.nc"
+      - "atm_reduced_3h_10v_3h_196902-196902.nc"
+      - "atm_reduced_3h_10v_3h_196903-196903.nc"
+      - "atm_reduced_3h_10v_3h_196904-196904.nc"
+      - "atm_reduced_3h_10v_3h_196905-196905.nc"
+      - "atm_reduced_3h_10v_3h_196906-196906.nc"
+      - "atm_reduced_3h_10v_3h_196907-196907.nc"
+      - "atm_reduced_3h_10v_3h_196908-196908.nc"
+      - "atm_reduced_3h_10v_3h_196909-196909.nc"
+      - "atm_reduced_3h_10v_3h_196910-196910.nc"
+      - "atm_reduced_3h_10v_3h_196911-196911.nc"
+      - "atm_reduced_3h_10v_3h_196912-196912.nc"
+
+# ============================================================================
+# Transfer Summary
+# ============================================================================
+# Case:         TCo1279-DART-1950C
+# Frequency:    3h
+# Years:        1950 to 1969 (1969 - 1950 + 1) years)
+# Variables:    2
+# Months/year:  12
+# Total files:  480
+#
+# Source:       /work/ab0246/from_aleph/TCo1279-DART-1950C/outdata/oifs
+# Destination:  /scratch/awicm3/TCo1279-DART-1950C//outdata/oifs
+#
+# Estimated size: ~480 files × avg_size
+#
+# ============================================================================
+# To transfer these files:
+# ============================================================================
+# 1. Review this file
+# 2. Edit uftp_transfer_with_verify.sh:
+#    - Set CONFIG_FILE="transfer_config_custom.yaml"
+#    - Set UFTP_USER and UFTP_KEY
+# 3. Run: ./uftp_transfer_with_verify.sh
+#
+# Or manually specify config file:
+#    sed -i 's/CONFIG_FILE=.*/CONFIG_FILE="transfer_config_custom.yaml"/' uftp_transfer_with_verify.sh
+# ============================================================================
