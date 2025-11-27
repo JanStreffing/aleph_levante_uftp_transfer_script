@@ -1,0 +1,219 @@
+# UFTP Transfer Configuration
+# Auto-generated for OIFS atmospheric data
+#
+# Case: TCo319-DART-ctl1950d-gibbs-charn
+# Frequency: 6h
+# Years: 1950-1969
+# Generated: Thu Nov 27 16:59:13 KST 2025
+
+transfers:
+  
+  # Variable 1/7: 2t
+  - name: "OIFS 6h - 2t (1950-1969)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ctl1950d-gibbs-charn/outdata/oifs"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ctl1950d-gibbs-charn//outdata/oifs/"
+    files:
+      - "atm_remapped_6h_2t_6h_1950-1950.nc"
+      - "atm_remapped_6h_2t_6h_1951-1951.nc"
+      - "atm_remapped_6h_2t_6h_1952-1952.nc"
+      - "atm_remapped_6h_2t_6h_1953-1953.nc"
+      - "atm_remapped_6h_2t_6h_1954-1954.nc"
+      - "atm_remapped_6h_2t_6h_1955-1955.nc"
+      - "atm_remapped_6h_2t_6h_1956-1956.nc"
+      - "atm_remapped_6h_2t_6h_1957-1957.nc"
+      - "atm_remapped_6h_2t_6h_1958-1958.nc"
+      - "atm_remapped_6h_2t_6h_1959-1959.nc"
+      - "atm_remapped_6h_2t_6h_1960-1960.nc"
+      - "atm_remapped_6h_2t_6h_1961-1961.nc"
+      - "atm_remapped_6h_2t_6h_1962-1962.nc"
+      - "atm_remapped_6h_2t_6h_1963-1963.nc"
+      - "atm_remapped_6h_2t_6h_1964-1964.nc"
+      - "atm_remapped_6h_2t_6h_1965-1965.nc"
+      - "atm_remapped_6h_2t_6h_1966-1966.nc"
+      - "atm_remapped_6h_2t_6h_1967-1967.nc"
+      - "atm_remapped_6h_2t_6h_1968-1968.nc"
+      - "atm_remapped_6h_2t_6h_1969-1969.nc"
+  
+  # Variable 2/7: 10u
+  - name: "OIFS 6h - 10u (1950-1969)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ctl1950d-gibbs-charn/outdata/oifs"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ctl1950d-gibbs-charn//outdata/oifs/"
+    files:
+      - "atm_remapped_6h_10u_6h_1950-1950.nc"
+      - "atm_remapped_6h_10u_6h_1951-1951.nc"
+      - "atm_remapped_6h_10u_6h_1952-1952.nc"
+      - "atm_remapped_6h_10u_6h_1953-1953.nc"
+      - "atm_remapped_6h_10u_6h_1954-1954.nc"
+      - "atm_remapped_6h_10u_6h_1955-1955.nc"
+      - "atm_remapped_6h_10u_6h_1956-1956.nc"
+      - "atm_remapped_6h_10u_6h_1957-1957.nc"
+      - "atm_remapped_6h_10u_6h_1958-1958.nc"
+      - "atm_remapped_6h_10u_6h_1959-1959.nc"
+      - "atm_remapped_6h_10u_6h_1960-1960.nc"
+      - "atm_remapped_6h_10u_6h_1961-1961.nc"
+      - "atm_remapped_6h_10u_6h_1962-1962.nc"
+      - "atm_remapped_6h_10u_6h_1963-1963.nc"
+      - "atm_remapped_6h_10u_6h_1964-1964.nc"
+      - "atm_remapped_6h_10u_6h_1965-1965.nc"
+      - "atm_remapped_6h_10u_6h_1966-1966.nc"
+      - "atm_remapped_6h_10u_6h_1967-1967.nc"
+      - "atm_remapped_6h_10u_6h_1968-1968.nc"
+      - "atm_remapped_6h_10u_6h_1969-1969.nc"
+  
+  # Variable 3/7: 10v
+  - name: "OIFS 6h - 10v (1950-1969)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ctl1950d-gibbs-charn/outdata/oifs"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ctl1950d-gibbs-charn//outdata/oifs/"
+    files:
+      - "atm_remapped_6h_10v_6h_1950-1950.nc"
+      - "atm_remapped_6h_10v_6h_1951-1951.nc"
+      - "atm_remapped_6h_10v_6h_1952-1952.nc"
+      - "atm_remapped_6h_10v_6h_1953-1953.nc"
+      - "atm_remapped_6h_10v_6h_1954-1954.nc"
+      - "atm_remapped_6h_10v_6h_1955-1955.nc"
+      - "atm_remapped_6h_10v_6h_1956-1956.nc"
+      - "atm_remapped_6h_10v_6h_1957-1957.nc"
+      - "atm_remapped_6h_10v_6h_1958-1958.nc"
+      - "atm_remapped_6h_10v_6h_1959-1959.nc"
+      - "atm_remapped_6h_10v_6h_1960-1960.nc"
+      - "atm_remapped_6h_10v_6h_1961-1961.nc"
+      - "atm_remapped_6h_10v_6h_1962-1962.nc"
+      - "atm_remapped_6h_10v_6h_1963-1963.nc"
+      - "atm_remapped_6h_10v_6h_1964-1964.nc"
+      - "atm_remapped_6h_10v_6h_1965-1965.nc"
+      - "atm_remapped_6h_10v_6h_1966-1966.nc"
+      - "atm_remapped_6h_10v_6h_1967-1967.nc"
+      - "atm_remapped_6h_10v_6h_1968-1968.nc"
+      - "atm_remapped_6h_10v_6h_1969-1969.nc"
+  
+  # Variable 4/7: hcc
+  - name: "OIFS 6h - hcc (1950-1969)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ctl1950d-gibbs-charn/outdata/oifs"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ctl1950d-gibbs-charn//outdata/oifs/"
+    files:
+      - "atm_remapped_6h_hcc_6h_1950-1950.nc"
+      - "atm_remapped_6h_hcc_6h_1951-1951.nc"
+      - "atm_remapped_6h_hcc_6h_1952-1952.nc"
+      - "atm_remapped_6h_hcc_6h_1953-1953.nc"
+      - "atm_remapped_6h_hcc_6h_1954-1954.nc"
+      - "atm_remapped_6h_hcc_6h_1955-1955.nc"
+      - "atm_remapped_6h_hcc_6h_1956-1956.nc"
+      - "atm_remapped_6h_hcc_6h_1957-1957.nc"
+      - "atm_remapped_6h_hcc_6h_1958-1958.nc"
+      - "atm_remapped_6h_hcc_6h_1959-1959.nc"
+      - "atm_remapped_6h_hcc_6h_1960-1960.nc"
+      - "atm_remapped_6h_hcc_6h_1961-1961.nc"
+      - "atm_remapped_6h_hcc_6h_1962-1962.nc"
+      - "atm_remapped_6h_hcc_6h_1963-1963.nc"
+      - "atm_remapped_6h_hcc_6h_1964-1964.nc"
+      - "atm_remapped_6h_hcc_6h_1965-1965.nc"
+      - "atm_remapped_6h_hcc_6h_1966-1966.nc"
+      - "atm_remapped_6h_hcc_6h_1967-1967.nc"
+      - "atm_remapped_6h_hcc_6h_1968-1968.nc"
+      - "atm_remapped_6h_hcc_6h_1969-1969.nc"
+  
+  # Variable 5/7: mcc
+  - name: "OIFS 6h - mcc (1950-1969)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ctl1950d-gibbs-charn/outdata/oifs"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ctl1950d-gibbs-charn//outdata/oifs/"
+    files:
+      - "atm_remapped_6h_mcc_6h_1950-1950.nc"
+      - "atm_remapped_6h_mcc_6h_1951-1951.nc"
+      - "atm_remapped_6h_mcc_6h_1952-1952.nc"
+      - "atm_remapped_6h_mcc_6h_1953-1953.nc"
+      - "atm_remapped_6h_mcc_6h_1954-1954.nc"
+      - "atm_remapped_6h_mcc_6h_1955-1955.nc"
+      - "atm_remapped_6h_mcc_6h_1956-1956.nc"
+      - "atm_remapped_6h_mcc_6h_1957-1957.nc"
+      - "atm_remapped_6h_mcc_6h_1958-1958.nc"
+      - "atm_remapped_6h_mcc_6h_1959-1959.nc"
+      - "atm_remapped_6h_mcc_6h_1960-1960.nc"
+      - "atm_remapped_6h_mcc_6h_1961-1961.nc"
+      - "atm_remapped_6h_mcc_6h_1962-1962.nc"
+      - "atm_remapped_6h_mcc_6h_1963-1963.nc"
+      - "atm_remapped_6h_mcc_6h_1964-1964.nc"
+      - "atm_remapped_6h_mcc_6h_1965-1965.nc"
+      - "atm_remapped_6h_mcc_6h_1966-1966.nc"
+      - "atm_remapped_6h_mcc_6h_1967-1967.nc"
+      - "atm_remapped_6h_mcc_6h_1968-1968.nc"
+      - "atm_remapped_6h_mcc_6h_1969-1969.nc"
+  
+  # Variable 6/7: lcc
+  - name: "OIFS 6h - lcc (1950-1969)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ctl1950d-gibbs-charn/outdata/oifs"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ctl1950d-gibbs-charn//outdata/oifs/"
+    files:
+      - "atm_remapped_6h_lcc_6h_1950-1950.nc"
+      - "atm_remapped_6h_lcc_6h_1951-1951.nc"
+      - "atm_remapped_6h_lcc_6h_1952-1952.nc"
+      - "atm_remapped_6h_lcc_6h_1953-1953.nc"
+      - "atm_remapped_6h_lcc_6h_1954-1954.nc"
+      - "atm_remapped_6h_lcc_6h_1955-1955.nc"
+      - "atm_remapped_6h_lcc_6h_1956-1956.nc"
+      - "atm_remapped_6h_lcc_6h_1957-1957.nc"
+      - "atm_remapped_6h_lcc_6h_1958-1958.nc"
+      - "atm_remapped_6h_lcc_6h_1959-1959.nc"
+      - "atm_remapped_6h_lcc_6h_1960-1960.nc"
+      - "atm_remapped_6h_lcc_6h_1961-1961.nc"
+      - "atm_remapped_6h_lcc_6h_1962-1962.nc"
+      - "atm_remapped_6h_lcc_6h_1963-1963.nc"
+      - "atm_remapped_6h_lcc_6h_1964-1964.nc"
+      - "atm_remapped_6h_lcc_6h_1965-1965.nc"
+      - "atm_remapped_6h_lcc_6h_1966-1966.nc"
+      - "atm_remapped_6h_lcc_6h_1967-1967.nc"
+      - "atm_remapped_6h_lcc_6h_1968-1968.nc"
+      - "atm_remapped_6h_lcc_6h_1969-1969.nc"
+  
+  # Variable 7/7: tcc
+  - name: "OIFS 6h - tcc (1950-1969)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ctl1950d-gibbs-charn/outdata/oifs"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ctl1950d-gibbs-charn//outdata/oifs/"
+    files:
+      - "atm_remapped_6h_tcc_6h_1950-1950.nc"
+      - "atm_remapped_6h_tcc_6h_1951-1951.nc"
+      - "atm_remapped_6h_tcc_6h_1952-1952.nc"
+      - "atm_remapped_6h_tcc_6h_1953-1953.nc"
+      - "atm_remapped_6h_tcc_6h_1954-1954.nc"
+      - "atm_remapped_6h_tcc_6h_1955-1955.nc"
+      - "atm_remapped_6h_tcc_6h_1956-1956.nc"
+      - "atm_remapped_6h_tcc_6h_1957-1957.nc"
+      - "atm_remapped_6h_tcc_6h_1958-1958.nc"
+      - "atm_remapped_6h_tcc_6h_1959-1959.nc"
+      - "atm_remapped_6h_tcc_6h_1960-1960.nc"
+      - "atm_remapped_6h_tcc_6h_1961-1961.nc"
+      - "atm_remapped_6h_tcc_6h_1962-1962.nc"
+      - "atm_remapped_6h_tcc_6h_1963-1963.nc"
+      - "atm_remapped_6h_tcc_6h_1964-1964.nc"
+      - "atm_remapped_6h_tcc_6h_1965-1965.nc"
+      - "atm_remapped_6h_tcc_6h_1966-1966.nc"
+      - "atm_remapped_6h_tcc_6h_1967-1967.nc"
+      - "atm_remapped_6h_tcc_6h_1968-1968.nc"
+      - "atm_remapped_6h_tcc_6h_1969-1969.nc"
+
+# ============================================================================
+# Transfer Summary
+# ============================================================================
+# Case:         TCo319-DART-ctl1950d-gibbs-charn
+# Frequency:    6h
+# Years:        1950 to 1969 (20 years)
+# Variables:    7
+# Months/year:  0
+# Files checked: 140
+# Files found:   140 (included in config)
+# Files missing: 0 (skipped)
+#
+# Source:       /work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ctl1950d-gibbs-charn/outdata/oifs
+# Destination:  /scratch/awicm3-TCo319/TCo319-DART-ctl1950d-gibbs-charn//outdata/oifs
+#
+# ============================================================================
+# To transfer these files:
+# ============================================================================
+# 1. Review this file
+# 2. Edit uftp_transfer_with_verify.sh:
+#    - Set CONFIG_FILE="transfer_config_TCo319-DART-1950C_AG.yaml"
+#    - Set UFTP_USER and UFTP_KEY
+# 3. Run: ./uftp_transfer_with_verify.sh
+#
+# Or manually specify config file:
+#    sed -i 's/CONFIG_FILE=.*/CONFIG_FILE="transfer_config_TCo319-DART-1950C_AG.yaml"/' uftp_transfer_with_verify.sh
+# ============================================================================
