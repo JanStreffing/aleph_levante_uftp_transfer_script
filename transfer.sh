@@ -6,8 +6,8 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     cat << 'EOF'
 Usage: ./uftp_upload_with_verify.sh [config_file.yaml]
 
-Upload files TO DKRZ Levante with automatic MD5 verification and remote directory creation.
-Failed uploads and checksum mismatches are automatically retried up to 3 times.
+Upload files TO DKRZ Levante with automatic remote directory creation.
+Failed uploads are automatically retried up to 3 times.
 
 Arguments:
   config_file.yaml   Path to YAML config file (default: transfer_config.yaml)
@@ -20,10 +20,19 @@ Examples:
 Config file format: See upload_config.yaml
 
 Features:
-  - Automatic retry (3 attempts) on upload failure or checksum mismatch
-  - MD5 verification after each upload
+  - Automatic retry (3 attempts) on upload failure
   - Automatic remote directory creation
   - Progress display with transfer speed
+  - Resume support: Successfully uploaded files are tracked and skipped on re-run
+
+State File:
+  Completed uploads are saved to .uftp_upload_state_<config>.json
+  If interrupted, simply re-run the script - it will skip completed files.
+  Delete the state file to force re-upload of all files.
+  
+Safety:
+  If any upload fails, the last completed file is marked for re-upload
+  (it may have been partially written and could be corrupted).
 
 EOF
     exit 0
@@ -37,7 +46,7 @@ UFTP_AUTH_SERVER="https://uftp.dkrz.de:9000/rest/auth/HPCDATA:"
 # UFTP performance options
 THREADS=4          # Number of parallel FTP connections (-t)
 STREAMS=8          # Number of TCP streams per connection (-n)
-MAX_RETRIES=3      # Number of retry attempts for failed uploads/verifications
+MAX_RETRIES=3      # Number of retry attempts for failed uploads
 
 # Colors for output
 RED='\033[0;31m'
@@ -46,9 +55,11 @@ YELLOW='\033[1;33m'
 BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
-echo -e "${GREEN}=== UFTP Upload Script with Verification ===${NC}"
+echo -e "${GREEN}=== UFTP Upload Script ===${NC}"
 echo "Config file: ${CONFIG_FILE}"
 echo "FTP Connections: ${THREADS}, TCP Streams: ${STREAMS}, Max Retries: ${MAX_RETRIES}"
+echo ""
+echo -e "${BLUE}Resume support: Completed files are tracked and skipped on re-run${NC}"
 echo ""
 
 # Check if config file exists
@@ -115,39 +126,34 @@ import yaml
 import subprocess
 import sys
 import os
-import hashlib
+import json
 from pathlib import Path
+import datetime
 
-def compute_md5(filepath):
-    """Compute MD5 checksum of a file"""
-    md5 = hashlib.md5()
-    with open(filepath, 'rb') as f:
-        for chunk in iter(lambda: f.read(8192), b''):
-            md5.update(chunk)
-    return md5.hexdigest()
+def load_state_file(state_file):
+    """Load completed uploads from state file"""
+    if os.path.exists(state_file):
+        try:
+            with open(state_file, 'r') as f:
+                return json.load(f)
+        except:
+            return {}
+    return {}
 
-def get_remote_checksum(uftp_url, user, key):
-    """Get checksum from remote server using UFTP"""
-    cmd = [
-        'uftp', 'checksum',
-        '-u', user,
-        '-i', key,
-        '-a', 'MD5',
-        uftp_url
-    ]
-    try:
-        result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True, check=True)
-        # Parse output: "MD5 checksum: <hash>"
-        for line in result.stdout.strip().split('\n'):
-            if 'MD5' in line or len(line) == 32:
-                # Extract just the hash
-                parts = line.split()
-                for part in parts:
-                    if len(part) == 32 and all(c in '0123456789abcdef' for c in part.lower()):
-                        return part.lower()
-        return None
-    except subprocess.CalledProcessError:
-        return None
+def save_state_file(state_file, state):
+    """Save completed uploads to state file"""
+    with open(state_file, 'w') as f:
+        json.dump(state, f, indent=2)
+
+def mark_file_done(state, remote_path):
+    """Mark a file as successfully uploaded"""
+    state[remote_path] = {
+        'completed_at': datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    }
+
+def is_file_done(state, remote_path):
+    """Check if file was already successfully uploaded"""
+    return remote_path in state
 
 def create_remote_dir(remote_path, uftp_auth_server, user, key):
     """Create remote directory and all parent directories using UFTP"""
@@ -205,6 +211,17 @@ threads = int(os.environ.get('THREADS', '4'))
 streams = int(os.environ.get('STREAMS', '8'))
 max_retries = int(os.environ.get('MAX_RETRIES', '3'))
 
+# State file for tracking completed uploads
+config_basename = os.path.splitext(os.path.basename(config_file))[0]
+state_file = f".uftp_upload_state_{config_basename}.json"
+upload_state = load_state_file(state_file)
+
+print(f"State file: {state_file}")
+if os.path.exists(state_file):
+    completed_count = len(upload_state)
+    print(f"Found {completed_count} previously completed uploads")
+print()
+
 try:
     with open(config_file, 'r') as f:
         config = yaml.safe_load(f)
@@ -220,8 +237,8 @@ if 'transfers' not in config:
 total_files = 0
 successful = 0
 failed = 0
-verified = 0
-verification_failed = 0
+skipped = 0
+last_completed_file = None
 
 # Process each transfer block
 for idx, transfer in enumerate(config['transfers'], 1):
@@ -271,14 +288,14 @@ for idx, transfer in enumerate(config['transfers'], 1):
             if create_remote_dir(remote_file_dir, uftp_auth_server, uftp_user, uftp_key):
                 created_dirs.add(remote_file_dir)
         
-        # Get local checksum before upload
-        print(f"    Computing local checksum...")
-        local_md5 = compute_md5(local_full)
-        print(f"    Local MD5:  {local_md5}")
+        # Check if already completed
+        if is_file_done(upload_state, remote_full):
+            print(f"    \033[0;36m⊙ Already uploaded (skipping)\033[0m")
+            skipped += 1
+            continue
         
         # Try upload with retries
         upload_success = False
-        verify_success = False
         
         for attempt in range(1, max_retries + 1):
             if attempt > 1:
@@ -299,47 +316,41 @@ for idx, transfer in enumerate(config['transfers'], 1):
                     break
             
             print(f"    \033[0;32m✓\033[0m Uploaded")
-            
-            # Verify checksum after upload
-            print(f"    Verifying upload...")
-            remote_md5 = get_remote_checksum(remote_url, uftp_user, uftp_key)
-            
-            if not remote_md5:
-                print(f"    \033[1;33m⚠ Could not get remote checksum (skipping verification)\033[0m")
-                upload_success = True
-                successful += 1
-                break
-            
-            print(f"    Remote MD5: {remote_md5}")
-            
-            if local_md5 == remote_md5:
-                print(f"    \033[0;32m✓ Checksum verified\033[0m")
-                upload_success = True
-                verify_success = True
-                successful += 1
-                verified += 1
-                break
-            else:
-                print(f"    \033[0;31m✗ Checksum mismatch! (attempt {attempt}/{max_retries})\033[0m")
-                if attempt < max_retries:
-                    print(f"    Re-uploading file...")
-                else:
-                    verification_failed += 1
-                    successful += 1  # File was uploaded, just verification failed
+            upload_success = True
+            successful += 1
+            # Mark as done in state
+            mark_file_done(upload_state, remote_full)
+            save_state_file(state_file, upload_state)
+            last_completed_file = remote_full
+            break
 
 # Final summary
 print(f"\n\033[0;32m=== Upload Summary ===\033[0m")
-print(f"Total files:         {total_files}")
-print(f"Successfully uploaded: {successful}")
-print(f"Failed uploads:      {failed}")
-print(f"Verified checksums:  {verified}")
-print(f"Verification failed: {verification_failed}")
+print(f"Total files:           {total_files}")
+print(f"Skipped (already done): {skipped}")
+print(f"Successfully uploaded:  {successful}")
+print(f"Failed uploads:        {failed}")
 
-if failed > 0 or verification_failed > 0:
-    print(f"\n\033[0;31mSome uploads or verifications failed!\033[0m")
+if failed > 0:
+    print(f"\n\033[0;31mSome uploads failed!\033[0m")
+    
+    # Remove last completed file from state - it may be corrupted
+    if last_completed_file:
+        print(f"\033[1;33m⚠ Removing last completed file from state (may be corrupted):\033[0m")
+        print(f"  {os.path.basename(last_completed_file)}")
+        if last_completed_file in upload_state:
+            del upload_state[last_completed_file]
+            save_state_file(state_file, upload_state)
+    
+    if successful > 0:
+        print(f"\033[1;33mNote: {successful} files were successfully uploaded.\033[0m")
+        print(f"\033[1;33mRe-run the script to retry failed uploads.\033[0m")
+        print(f"\033[1;33mThe last completed file will be re-uploaded as a safety measure.\033[0m")
     sys.exit(1)
 else:
-    print(f"\n\033[0;32m✓ All uploads completed and verified successfully!\033[0m")
+    print(f"\n\033[0;32m✓ All uploads completed successfully!\033[0m")
+    if skipped > 0:
+        print(f"({skipped} files were already completed from previous runs)")
 
 PYTHON_SCRIPT
 
@@ -348,7 +359,7 @@ exit_code=$?
 if [ $exit_code -eq 0 ]; then
     echo -e "${GREEN}Done!${NC}"
 else
-    echo -e "${RED}Transfer script failed with errors${NC}"
+    echo -e "${RED}Upload script failed with errors${NC}"
     exit $exit_code
 fi
 
