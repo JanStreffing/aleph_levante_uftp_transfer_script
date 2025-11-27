@@ -5,24 +5,25 @@
 #========================================================================================
 
 # Parse command line arguments
-START_YEAR=${1:-2080}
-END_YEAR=${2:-2092}
-OUTPUT_FILE=${3:-"transfer_config_TCo1279-DART-2080C_AG.yaml"}
+START_YEAR=${1:-1950}
+END_YEAR=${2:-1969}
+OUTPUT_FILE=${3:-"transfer_config_TCo319-DART-1950C_pr_AG.yaml"}
 
 # Configuration ===========================================================================
 
 # Case names (edit these for your case)
-ICASE_NAME="TCo1279-DART-2080C"
-CASE_NAME="TCo1279-DART-2080C"
-FREQ="3h"
+ICASE_NAME="TCo319-DART-1950C"
+#CASE_NAME="TCo319-DART-ssp585d-gibbs-charn"
+CASE_NAME="TCo319-DART-ctl1950d-gibbs-charn"
+FREQ="1d"
 
 # Paths on Levante (source) and Aleph (destination)
 REMOTE_BASE="/work/ab0995/ICCP_AWI_hackthon_2025/${CASE_NAME}/outdata/oifs"
-LOCAL_BASE="/scratch/awicm3/${CASE_NAME}//outdata/oifs"
+LOCAL_BASE="/scratch/awicm3-TCo319/${CASE_NAME}//outdata/oifs"
 
 # Variables to process (edit this list as needed)
 VARIABLES=(
-    "2t" "10u" "10v" "lsp" "cp" "hcc" "mcc" "lcc" "tcc"
+    "lsp" "cp" 
 )
 
 # Option: Specify only certain variables
@@ -30,7 +31,7 @@ VARIABLES=(
 # VARIABLES=("10u" "10v" "2t" "msl")
 
 # Option: Specify specific months (default: all 12 months)
-MONTHS=("01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12")
+#MONTHS=("01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12")
 # Or select specific months:
 # MONTHS=("01" "06" "12")  # Only Jan, Jun, Dec
 
@@ -59,7 +60,6 @@ Edit the script to customize:
   - ICASE_NAME, CASE_NAME: Model case names
   - REMOTE_BASE, LOCAL_BASE: Source and destination paths
   - VARIABLES: List of variables to transfer
-  - MONTHS: Months to include (default: all 12)
   - FREQ: Frequency (1m, 1d, etc.)
 
 EOF
@@ -77,11 +77,10 @@ echo "Case:        ${CASE_NAME}"
 echo "Frequency:   ${FREQ}"
 echo "Years:       ${START_YEAR} to ${END_YEAR}"
 echo "Variables:   ${#VARIABLES[@]}"
-echo "Months:      ${#MONTHS[@]} per year"
 echo "Output:      ${OUTPUT_FILE}"
 echo ""
 
-TOTAL_FILES=$((${#VARIABLES[@]} * (${END_YEAR} - ${START_YEAR} + 1) * ${#MONTHS[@]}))
+TOTAL_FILES=$((${#VARIABLES[@]} * (${END_YEAR} - ${START_YEAR} + 1) ))
 echo "Expected files: ${TOTAL_FILES}"
 echo ""
 echo "Generating ${OUTPUT_FILE}..."
@@ -128,10 +127,9 @@ EOF
     
     # Loop through years and months to generate file list
     for ((YEAR=${START_YEAR}; YEAR<=${END_YEAR}; YEAR++)); do
-        for MONTH in 01 02 03 04 05 06 07 08 09 10 11 12; do
             
             # Construct filename
-            FILE="atm_reduced_${FREQ}_${VAR}_${FREQ}_${YEAR}${MONTH}-${YEAR}${MONTH}.nc"
+            FILE="atm_remapped_${FREQ}_${VAR}_${FREQ}_${YEAR}-${YEAR}.nc"
             FULL_PATH="${LOCAL_BASE}/${FILE}"
             
             ((TOTAL_FILES_CHECKED++))
@@ -147,8 +145,6 @@ EOF
                 ((TOTAL_FILES_MISSING++))
                 echo "  WARNING: Missing file: ${FULL_PATH}" >&2
             fi
-            
-        done
     done
     
     echo "  → Found: ${VAR_FILES_FOUND}, Missing: ${VAR_FILES_MISSING}"
