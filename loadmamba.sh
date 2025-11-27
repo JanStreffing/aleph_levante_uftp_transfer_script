@@ -1,7 +1,7 @@
 # >>> mamba initialize >>>
 # !! Contents within this block are managed by 'micromamba shell init' !!
-export MAMBA_EXE='/mnt/lustre/home/awiiccp2/.local/bin/micromamba';
-export MAMBA_ROOT_PREFIX='/mnt/lustre/home/awiiccp2/.local/share/mamba';
+export MAMBA_EXE='/mnt/lustre/home/daewon/.local/bin/micromamba';
+export MAMBA_ROOT_PREFIX='/mnt/lustre/home/daewon/.local/share/mamba';
 __mamba_setup="$("$MAMBA_EXE" shell hook --shell bash --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__mamba_setup"

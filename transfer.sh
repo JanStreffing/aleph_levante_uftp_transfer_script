@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 set -e
 
 # Parse command line arguments
@@ -80,9 +80,9 @@ else
 fi
 
 # Set UFTP environment
-UFTP_USER=a270092
-UFTP_KEY=$HOME/.uftp/uftp_levante_2025-11
-export PATH=/scratch/awiiccp2/uftp/uftp-client-1.5.0/bin/:$PATH
+UFTP_USER=b382608
+UFTP_KEY=$HOME/.uftp/levante_transfer
+export PATH=/home/daewon/uftp-client-1.5.0/bin/:$PATH
 
 # Verify UFTP is available
 if ! command -v uftp &> /dev/null; then
@@ -108,7 +108,7 @@ export UFTP_KEY
 export THREADS
 export STREAMS
 export MAX_RETRIES
-
+which uftp
 # Parse YAML and execute transfers with Python
 python3 << 'PYTHON_SCRIPT'
 import yaml
@@ -249,7 +249,7 @@ for idx, transfer in enumerate(config['transfers'], 1):
     # Track directories we've created to avoid redundant mkdir calls
     created_dirs = set()
     created_dirs.add(remote_base)
-    
+
     # Transfer each file
     for file_path in files:
         total_files += 1
