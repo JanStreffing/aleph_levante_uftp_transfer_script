@@ -1,0 +1,199 @@
+# UFTP Transfer Configuration
+# Auto-generated for OIFS atmospheric data
+#
+# Case: TCo1279-DART-2080C
+# Frequency: 3h
+# Years: 2080-2092
+# Generated: Mon Dec  1 10:38:13 KST 2025
+
+transfers:
+  
+  # Variable 1/1: w_850
+  - name: "OIFS 3h - w_850 (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo1279-DART-2080C/outdata/oifs"
+    local_dir: "/proj/shared_data/awicm3/TCo1279-DART-2080C/outdata/oifs/3h/reduced_pl_w_850/"
+    files:
+      - "atm_reduced_3h_pl_w_850_3h_pl_208001-208001.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208002-208002.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208003-208003.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208004-208004.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208005-208005.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208006-208006.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208007-208007.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208008-208008.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208009-208009.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208010-208010.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208011-208011.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208012-208012.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208101-208101.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208102-208102.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208103-208103.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208104-208104.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208105-208105.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208106-208106.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208107-208107.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208108-208108.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208109-208109.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208110-208110.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208111-208111.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208112-208112.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208201-208201.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208202-208202.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208203-208203.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208204-208204.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208205-208205.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208206-208206.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208207-208207.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208208-208208.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208209-208209.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208210-208210.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208211-208211.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208212-208212.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208301-208301.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208302-208302.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208303-208303.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208304-208304.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208305-208305.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208306-208306.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208307-208307.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208308-208308.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208309-208309.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208310-208310.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208311-208311.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208312-208312.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208401-208401.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208402-208402.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208403-208403.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208404-208404.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208405-208405.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208406-208406.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208407-208407.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208408-208408.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208409-208409.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208410-208410.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208411-208411.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208412-208412.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208501-208501.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208502-208502.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208503-208503.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208504-208504.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208505-208505.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208506-208506.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208507-208507.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208508-208508.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208509-208509.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208510-208510.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208511-208511.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208512-208512.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208601-208601.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208602-208602.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208603-208603.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208604-208604.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208605-208605.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208606-208606.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208607-208607.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208608-208608.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208609-208609.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208610-208610.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208611-208611.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208612-208612.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208701-208701.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208702-208702.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208703-208703.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208704-208704.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208705-208705.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208706-208706.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208707-208707.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208708-208708.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208709-208709.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208710-208710.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208711-208711.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208712-208712.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208801-208801.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208802-208802.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208803-208803.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208804-208804.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208805-208805.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208806-208806.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208807-208807.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208808-208808.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208809-208809.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208810-208810.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208811-208811.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208812-208812.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208901-208901.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208902-208902.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208903-208903.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208904-208904.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208905-208905.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208906-208906.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208907-208907.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208908-208908.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208909-208909.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208910-208910.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208911-208911.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_208912-208912.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209001-209001.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209002-209002.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209003-209003.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209004-209004.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209005-209005.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209006-209006.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209007-209007.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209008-209008.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209009-209009.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209010-209010.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209011-209011.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209012-209012.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209101-209101.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209102-209102.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209103-209103.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209104-209104.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209105-209105.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209106-209106.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209107-209107.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209108-209108.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209109-209109.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209110-209110.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209111-209111.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209112-209112.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209201-209201.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209202-209202.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209203-209203.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209204-209204.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209205-209205.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209206-209206.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209207-209207.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209208-209208.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209209-209209.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209210-209210.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209211-209211.nc"
+      - "atm_reduced_3h_pl_w_850_3h_pl_209212-209212.nc"
+
+# ============================================================================
+# Transfer Summary
+# ============================================================================
+# Case:         TCo1279-DART-2080C
+# Frequency:    3h
+# Years:        2080 to 2092 (13 years)
+# Variables:    1
+# Months/year:  12
+# Files checked: 156
+# Files found:   156 (included in config)
+# Files missing: 0 (skipped)
+#
+# Source:       /work/ab0995/ICCP_AWI_hackthon_2025/TCo1279-DART-2080C/outdata/oifs
+# Destination:  /proj/shared_data/awicm3/TCo1279-DART-2080C/outdata/oifs/3h/reduced_pl_w_850
+#
+# ============================================================================
+# To transfer these files:
+# ============================================================================
+# 1. Review this file
+# 2. Edit uftp_transfer_with_verify.sh:
+#    - Set CONFIG_FILE="transfer_config_TCo1279-DART-2080C_w850_AG.yaml"
+#    - Set UFTP_USER and UFTP_KEY
+# 3. Run: ./uftp_transfer_with_verify.sh
+#
+# Or manually specify config file:
+#    sed -i 's/CONFIG_FILE=.*/CONFIG_FILE="transfer_config_TCo1279-DART-2080C_w850_AG.yaml"/' uftp_transfer_with_verify.sh
+# ============================================================================
