@@ -22,7 +22,7 @@ LOCAL_BASE="/scratch/awicm3/${CASE_NAME}/outdata/fesom"
 # Variables to process (edit this list as needed)
 # Common FESOM ocean variables
 VARIABLES=(
-    "u1-31" "v1-31" "temp1-31" "salt1-31" "w1-31" "fh" "tx_sur" "ty_surf" "MLD2" "m_ice" "a_ice" "uice" "vice"
+    "u1-31" "v1-31" "temp1-31" "salt1-31" "w1-31" "fh" "tx_sur" "ty_sur" "MLD2" "m_ice" "a_ice" "uice" "vice"
 )
 
 # Option: Specify only certain variables
