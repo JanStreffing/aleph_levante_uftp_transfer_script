@@ -5,15 +5,15 @@
 #========================================================================================
 
 # Parse command line arguments
-START_YEAR=${1:-1950}
-END_YEAR=${2:-1969}
-OUTPUT_FILE=${3:-"transfer_config_TCo1279-DART-1950C_FESOM.yaml"}
+START_YEAR=${1:-2080}
+END_YEAR=${2:-2092}
+OUTPUT_FILE=${3:-"transfer_config_TCo1279-DART-2080C_FESOM.yaml"}
 
 # Configuration ===========================================================================
 
 # Case names (edit these for your case)
-ICASE_NAME="TCo1279-DART-1950C"
-CASE_NAME="TCo1279-DART-1950C"
+ICASE_NAME="TCo1279-DART-2080C"
+CASE_NAME="TCo1279-DART-2080C"
 
 # Paths on Levante (source) and Aleph (destination)
 REMOTE_BASE="/work/ab0995/ICCP_AWI_hackthon_2025/${CASE_NAME}/outdata/fesom"
