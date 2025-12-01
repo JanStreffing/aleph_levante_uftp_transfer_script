@@ -1,0 +1,71 @@
+# UFTP Transfer Configuration
+# Auto-generated for OIFS atmospheric data
+#
+# Case: TCo1279-DART-1950C
+# Frequency: 3h
+# Years: 1950-1969
+# Generated: Wed Nov 26 14:26:52 KST 2025
+
+transfers:
+
+  # Variable 1/1: 10v
+  - name: "OIFS 3h - 10v (1950-1969)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo1279-DART-1950C/outdata/oifs"
+    local_dir: "/scratch/awicm3/TCo1279-DART-1950C/outdata/oifs/"
+    files:
+      - "atm_reduced_3h_10v_3h_196709-196709.nc"
+      - "atm_reduced_3h_10v_3h_196710-196710.nc"
+      - "atm_reduced_3h_10v_3h_196711-196711.nc"
+      - "atm_reduced_3h_10v_3h_196712-196712.nc"
+      - "atm_reduced_3h_10v_3h_196801-196801.nc"
+      - "atm_reduced_3h_10v_3h_196802-196802.nc"
+      - "atm_reduced_3h_10v_3h_196803-196803.nc"
+      - "atm_reduced_3h_10v_3h_196804-196804.nc"
+      - "atm_reduced_3h_10v_3h_196805-196805.nc"
+      - "atm_reduced_3h_10v_3h_196806-196806.nc"
+      - "atm_reduced_3h_10v_3h_196807-196807.nc"
+      - "atm_reduced_3h_10v_3h_196808-196808.nc"
+      - "atm_reduced_3h_10v_3h_196809-196809.nc"
+      - "atm_reduced_3h_10v_3h_196810-196810.nc"
+      - "atm_reduced_3h_10v_3h_196811-196811.nc"
+      - "atm_reduced_3h_10v_3h_196812-196812.nc"
+      - "atm_reduced_3h_10v_3h_196901-196901.nc"
+      - "atm_reduced_3h_10v_3h_196902-196902.nc"
+      - "atm_reduced_3h_10v_3h_196903-196903.nc"
+      - "atm_reduced_3h_10v_3h_196904-196904.nc"
+      - "atm_reduced_3h_10v_3h_196905-196905.nc"
+      - "atm_reduced_3h_10v_3h_196906-196906.nc"
+      - "atm_reduced_3h_10v_3h_196907-196907.nc"
+      - "atm_reduced_3h_10v_3h_196908-196908.nc"
+      - "atm_reduced_3h_10v_3h_196909-196909.nc"
+      - "atm_reduced_3h_10v_3h_196910-196910.nc"
+      - "atm_reduced_3h_10v_3h_196911-196911.nc"
+      - "atm_reduced_3h_10v_3h_196912-196912.nc"
+
+# ============================================================================
+# Transfer Summary
+# ============================================================================
+# Case:         TCo1279-DART-1950C
+# Frequency:    3h
+# Years:        1950 to 1969 (1969 - 1950 + 1) years)
+# Variables:    2
+# Months/year:  12
+# Total files:  480
+#
+# Source:       /work/ab0246/from_aleph/TCo1279-DART-1950C/outdata/oifs
+# Destination:  /scratch/awicm3/TCo1279-DART-1950C//outdata/oifs
+#
+# Estimated size: ~480 files × avg_size
+#
+# ============================================================================
+# To transfer these files:
+# ============================================================================
+# 1. Review this file
+# 2. Edit uftp_transfer_with_verify.sh:
+#    - Set CONFIG_FILE="transfer_config_custom.yaml"
+#    - Set UFTP_USER and UFTP_KEY
+# 3. Run: ./uftp_transfer_with_verify.sh
+#
+# Or manually specify config file:
+#    sed -i 's/CONFIG_FILE=.*/CONFIG_FILE="transfer_config_custom.yaml"/' uftp_transfer_with_verify.sh
+# ============================================================================

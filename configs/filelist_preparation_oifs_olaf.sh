@@ -1,36 +1,36 @@
 #!/bin/bash
 #========================================================================================
-# Generate transfer_config.yaml from FESOM file patterns - Customizable version
-# Usage: ./filelist_preparation_fesom.sh [start_year] [end_year] [output_file]
+# Generate transfer_config.yaml from OIFS file patterns - Customizable version
+# Usage: ./generate_transfer_config_custom.sh [start_year] [end_year] [output_file]
 #========================================================================================
 
 # Parse command line arguments
 START_YEAR=${1:-1950}
 END_YEAR=${2:-1969}
-OUTPUT_FILE=${3:-"transfer_config_TCo1279-DART-1950C_FESOM.yaml"}
+OUTPUT_FILE=${3:-"transfer_config_TCo95-CORE2-CTL_oifs_6h.yaml"}
 
 # Configuration ===========================================================================
 
 # Case names (edit these for your case)
-ICASE_NAME="TCo1279-DART-1950C"
-CASE_NAME="TCo1279-DART-1950C"
+ICASE_NAME="TCO95L91-CORE2-ctl1950d"
+CASE_NAME="TCO95L91-CORE2-ctl1950d"
+FREQ="6h"
 
 # Paths on Levante (source) and Aleph (destination)
-REMOTE_BASE="/work/ab0995/ICCP_AWI_hackthon_2025/${CASE_NAME}/outdata/fesom"
-LOCAL_BASE="/scratch/awicm3/${CASE_NAME}/outdata/fesom"
+REMOTE_BASE="/work/ab0995/ICCP_AWI_hackthon_2025/${CASE_NAME}/outdata/oifs"
+LOCAL_BASE="/proj/internal_group/iccp/tape_archiving/scratch/awicm3-TCo95/${CASE_NAME}/outdata/oifs"
 
 # Variables to process (edit this list as needed)
-# Common FESOM ocean variables
 VARIABLES=(
-    "u1-31" "v1-31" "temp1-31" "salt1-31" "w1-31" "fh" "tx_sur" "ty_surf" "MLD2" "m_ice" "a_ice" "uice" "vice"
+    "2t" "10u" "10v" "hcc" "mcc" "lcc" "tcc"
 )
 
 # Option: Specify only certain variables
 # Uncomment and edit to transfer only specific variables:
-# VARIABLES=("wm" "wrhof" "ssh" "temp" "salt")
+# VARIABLES=("10u" "10v" "2t" "msl")
 
 # Option: Specify specific months (default: all 12 months)
-MONTHS=("01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12")
+#MONTHS=("01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12")
 # Or select specific months:
 # MONTHS=("01" "06" "12")  # Only Jan, Jun, Dec
 
@@ -42,16 +42,16 @@ if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     cat << EOF
 Usage: $0 [start_year] [end_year] [output_file]
 
-Generate transfer_config.yaml for FESOM ocean data files.
+Generate transfer_config.yaml for OIFS atmospheric data files.
 Files are checked for existence - only existing files are added to the config.
 
 Arguments:
-  start_year   Starting year (default: 2080)
-  end_year     Ending year (default: 2092)
-  output_file  Output YAML file (default: transfer_config_TCo1279-DART-2080C_FESOM.yaml)
+  start_year   Starting year (default: 2089)
+  end_year     Ending year (default: 2089)
+  output_file  Output YAML file (default: transfer_config_custom.yaml)
 
 Examples:
-  $0                        # Use defaults (2080-2092)
+  $0                        # Use defaults (2089-2089)
   $0 2089 2091              # Years 2089-2091
   $0 2089 2091 my_list.yaml # Custom output file
 
@@ -60,9 +60,7 @@ Edit the script to customize:
   - REMOTE_BASE, LOCAL_BASE: Source and destination paths
   - VARIABLES: List of variables to transfer
   - MONTHS: Months to include (default: all 12)
-
-File pattern: <variable>.fesom.<year>_<month>.nc
-Example: wm.fesom.2092_10.nc
+  - FREQ: Frequency (1m, 1d, etc.)
 
 EOF
     exit 0
@@ -73,16 +71,17 @@ fi
 #========================================================================================
 
 echo "=========================================="
-echo "FESOM Transfer Config Generator"
+echo "OIFS Transfer Config Generator"
 echo "=========================================="
 echo "Case:        ${CASE_NAME}"
+echo "Frequency:   ${FREQ}"
 echo "Years:       ${START_YEAR} to ${END_YEAR}"
 echo "Variables:   ${#VARIABLES[@]}"
-echo "Months:      ${#MONTHS[@]} per year"
+#echo "Months:      ${#MONTHS[@]} per year"
 echo "Output:      ${OUTPUT_FILE}"
 echo ""
 
-TOTAL_FILES=$((${#VARIABLES[@]} * (${END_YEAR} - ${START_YEAR} + 1) * ${#MONTHS[@]}))
+TOTAL_FILES=$((${#VARIABLES[@]} * (${END_YEAR} - ${START_YEAR} + 1)))
 echo "Expected files: ${TOTAL_FILES}"
 echo ""
 echo "Generating ${OUTPUT_FILE}..."
@@ -92,9 +91,10 @@ echo ""
 # Write header
 cat > "${OUTPUT_FILE}" << EOF
 # UFTP Transfer Configuration
-# Auto-generated for FESOM ocean data
+# Auto-generated for OIFS atmospheric data
 #
 # Case: ${CASE_NAME}
+# Frequency: ${FREQ}
 # Years: ${START_YEAR}-${END_YEAR}
 # Generated: $(date)
 
@@ -117,7 +117,7 @@ for VAR in "${VARIABLES[@]}"; do
     cat >> "${OUTPUT_FILE}" << EOF
   
   # Variable ${VAR_COUNT}/${#VARIABLES[@]}: ${VAR}
-  - name: "FESOM - ${VAR} (${START_YEAR}-${END_YEAR})"
+  - name: "OIFS ${FREQ} - ${VAR} (${START_YEAR}-${END_YEAR})"
     remote_base: "${REMOTE_BASE}"
     local_dir: "${LOCAL_BASE}/"
     files:
@@ -128,10 +128,10 @@ EOF
     
     # Loop through years and months to generate file list
     for ((YEAR=${START_YEAR}; YEAR<=${END_YEAR}; YEAR++)); do
-        for MONTH in "${MONTHS[@]}"; do
+        #for MONTH in 01 02 03 04 05 06 07 08 09 10 11 12; do
             
-            # Construct filename - FESOM pattern: variable.fesom.year_month.nc
-            FILE="${VAR}.fesom.${YEAR}_${MONTH}.nc"
+            # Construct filename
+            FILE="atm_remapped_${FREQ}_${VAR}_${FREQ}_${YEAR}-${YEAR}.nc"
             FULL_PATH="${LOCAL_BASE}/${FILE}"
             
             ((TOTAL_FILES_CHECKED++))
@@ -148,7 +148,7 @@ EOF
                 echo "  WARNING: Missing file: ${FULL_PATH}" >&2
             fi
             
-        done
+        #done
     done
     
     echo "  → Found: ${VAR_FILES_FOUND}, Missing: ${VAR_FILES_MISSING}"
@@ -162,6 +162,7 @@ cat >> "${OUTPUT_FILE}" << EOF
 # Transfer Summary
 # ============================================================================
 # Case:         ${CASE_NAME}
+# Frequency:    ${FREQ}
 # Years:        ${START_YEAR} to ${END_YEAR} ($((${END_YEAR} - ${START_YEAR} + 1)) years)
 # Variables:    ${#VARIABLES[@]}
 # Months/year:  ${#MONTHS[@]}
@@ -171,9 +172,6 @@ cat >> "${OUTPUT_FILE}" << EOF
 #
 # Source:       ${REMOTE_BASE}
 # Destination:  ${LOCAL_BASE}
-#
-# File pattern: <variable>.fesom.<year>_<month>.nc
-# Example:      wm.fesom.2092_10.nc
 #
 # ============================================================================
 # To transfer these files:
@@ -216,3 +214,4 @@ echo "  2. Edit uftp_transfer_with_verify.sh:"
 echo "     CONFIG_FILE=\"${OUTPUT_FILE}\""
 echo "  3. Transfer: ./uftp_transfer_with_verify.sh"
 echo ""
+

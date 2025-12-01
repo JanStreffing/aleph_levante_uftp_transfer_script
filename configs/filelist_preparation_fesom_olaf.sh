@@ -5,24 +5,24 @@
 #========================================================================================
 
 # Parse command line arguments
-START_YEAR=${1:-1950}
-END_YEAR=${2:-1969}
-OUTPUT_FILE=${3:-"transfer_config_TCo1279-DART-1950C_FESOM.yaml"}
+START_YEAR=${1:-2080}
+END_YEAR=${2:-2099}
+OUTPUT_FILE=${3:-"transfer_config_ssp585d_FESOM.yaml"}
 
 # Configuration ===========================================================================
 
 # Case names (edit these for your case)
-ICASE_NAME="TCo1279-DART-1950C"
-CASE_NAME="TCo1279-DART-1950C"
+ICASE_NAME="ssp585d"
+CASE_NAME="ssp585d"
 
 # Paths on Levante (source) and Aleph (destination)
 REMOTE_BASE="/work/ab0995/ICCP_AWI_hackthon_2025/${CASE_NAME}/outdata/fesom"
-LOCAL_BASE="/scratch/awicm3/${CASE_NAME}/outdata/fesom"
+LOCAL_BASE="/proj/internal_group/iccp/tape_archiving/scratch/awicm3-TCo95/${CASE_NAME}/outdata/fesom"
 
 # Variables to process (edit this list as needed)
 # Common FESOM ocean variables
 VARIABLES=(
-    "u1-31" "v1-31" "temp1-31" "salt1-31" "w1-31" "fh" "tx_sur" "ty_surf" "MLD2" "m_ice" "a_ice" "uice" "vice"
+    "temp1-31" "salt1-31" "u1-31" "v1-31" "w1-31" "MLD2" "fh" "a_ice" "m_ice" "uice" "vice" "tx_sur" "ty_sur"
 )
 
 # Option: Specify only certain variables
@@ -30,7 +30,7 @@ VARIABLES=(
 # VARIABLES=("wm" "wrhof" "ssh" "temp" "salt")
 
 # Option: Specify specific months (default: all 12 months)
-MONTHS=("01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12")
+#MONTHS=("01" "02" "03" "04" "05" "06" "07" "08" "09" "10" "11" "12")
 # Or select specific months:
 # MONTHS=("01" "06" "12")  # Only Jan, Jun, Dec
 
@@ -78,11 +78,11 @@ echo "=========================================="
 echo "Case:        ${CASE_NAME}"
 echo "Years:       ${START_YEAR} to ${END_YEAR}"
 echo "Variables:   ${#VARIABLES[@]}"
-echo "Months:      ${#MONTHS[@]} per year"
+#echo "Months:      ${#MONTHS[@]} per year"
 echo "Output:      ${OUTPUT_FILE}"
 echo ""
 
-TOTAL_FILES=$((${#VARIABLES[@]} * (${END_YEAR} - ${START_YEAR} + 1) * ${#MONTHS[@]}))
+TOTAL_FILES=$((${#VARIABLES[@]} * (${END_YEAR} - ${START_YEAR} + 1)))
 echo "Expected files: ${TOTAL_FILES}"
 echo ""
 echo "Generating ${OUTPUT_FILE}..."
@@ -128,10 +128,10 @@ EOF
     
     # Loop through years and months to generate file list
     for ((YEAR=${START_YEAR}; YEAR<=${END_YEAR}; YEAR++)); do
-        for MONTH in "${MONTHS[@]}"; do
+        #for MONTH in "${MONTHS[@]}"; do
             
             # Construct filename - FESOM pattern: variable.fesom.year_month.nc
-            FILE="${VAR}.fesom.${YEAR}_${MONTH}.nc"
+            FILE="${VAR}.fesom.${YEAR}.nc"
             FULL_PATH="${LOCAL_BASE}/${FILE}"
             
             ((TOTAL_FILES_CHECKED++))
