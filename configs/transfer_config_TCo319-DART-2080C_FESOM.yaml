@@ -1,0 +1,285 @@
+# UFTP Transfer Configuration
+# Auto-generated for FESOM ocean data
+#
+# Case: TCo319-DART-ssp585d-gibbs-charn
+# Years: 2080-2092
+# Generated: Mon Dec  1 12:49:54 KST 2025
+
+transfers:
+  
+  # Variable 1/13: u1-31
+  - name: "FESOM - u1-31 (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "u1-31.fesom.2080.nc"
+      - "u1-31.fesom.2081.nc"
+      - "u1-31.fesom.2082.nc"
+      - "u1-31.fesom.2083.nc"
+      - "u1-31.fesom.2084.nc"
+      - "u1-31.fesom.2085.nc"
+      - "u1-31.fesom.2086.nc"
+      - "u1-31.fesom.2087.nc"
+      - "u1-31.fesom.2088.nc"
+      - "u1-31.fesom.2089.nc"
+      - "u1-31.fesom.2090.nc"
+      - "u1-31.fesom.2091.nc"
+      - "u1-31.fesom.2092.nc"
+  
+  # Variable 2/13: v1-31
+  - name: "FESOM - v1-31 (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "v1-31.fesom.2080.nc"
+      - "v1-31.fesom.2081.nc"
+      - "v1-31.fesom.2082.nc"
+      - "v1-31.fesom.2083.nc"
+      - "v1-31.fesom.2084.nc"
+      - "v1-31.fesom.2085.nc"
+      - "v1-31.fesom.2086.nc"
+      - "v1-31.fesom.2087.nc"
+      - "v1-31.fesom.2088.nc"
+      - "v1-31.fesom.2089.nc"
+      - "v1-31.fesom.2090.nc"
+      - "v1-31.fesom.2091.nc"
+      - "v1-31.fesom.2092.nc"
+  
+  # Variable 3/13: temp1-31
+  - name: "FESOM - temp1-31 (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "temp1-31.fesom.2080.nc"
+      - "temp1-31.fesom.2081.nc"
+      - "temp1-31.fesom.2082.nc"
+      - "temp1-31.fesom.2083.nc"
+      - "temp1-31.fesom.2084.nc"
+      - "temp1-31.fesom.2085.nc"
+      - "temp1-31.fesom.2086.nc"
+      - "temp1-31.fesom.2087.nc"
+      - "temp1-31.fesom.2088.nc"
+      - "temp1-31.fesom.2089.nc"
+      - "temp1-31.fesom.2090.nc"
+      - "temp1-31.fesom.2091.nc"
+      - "temp1-31.fesom.2092.nc"
+  
+  # Variable 4/13: salt1-31
+  - name: "FESOM - salt1-31 (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "salt1-31.fesom.2080.nc"
+      - "salt1-31.fesom.2081.nc"
+      - "salt1-31.fesom.2082.nc"
+      - "salt1-31.fesom.2083.nc"
+      - "salt1-31.fesom.2084.nc"
+      - "salt1-31.fesom.2085.nc"
+      - "salt1-31.fesom.2086.nc"
+      - "salt1-31.fesom.2087.nc"
+      - "salt1-31.fesom.2088.nc"
+      - "salt1-31.fesom.2089.nc"
+      - "salt1-31.fesom.2090.nc"
+      - "salt1-31.fesom.2091.nc"
+      - "salt1-31.fesom.2092.nc"
+  
+  # Variable 5/13: w1-31
+  - name: "FESOM - w1-31 (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "w1-31.fesom.2080.nc"
+      - "w1-31.fesom.2081.nc"
+      - "w1-31.fesom.2082.nc"
+      - "w1-31.fesom.2083.nc"
+      - "w1-31.fesom.2084.nc"
+      - "w1-31.fesom.2085.nc"
+      - "w1-31.fesom.2086.nc"
+      - "w1-31.fesom.2087.nc"
+      - "w1-31.fesom.2088.nc"
+      - "w1-31.fesom.2089.nc"
+      - "w1-31.fesom.2090.nc"
+      - "w1-31.fesom.2091.nc"
+      - "w1-31.fesom.2092.nc"
+  
+  # Variable 6/13: fh
+  - name: "FESOM - fh (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "fh.fesom.2080.nc"
+      - "fh.fesom.2081.nc"
+      - "fh.fesom.2082.nc"
+      - "fh.fesom.2083.nc"
+      - "fh.fesom.2084.nc"
+      - "fh.fesom.2085.nc"
+      - "fh.fesom.2086.nc"
+      - "fh.fesom.2087.nc"
+      - "fh.fesom.2088.nc"
+      - "fh.fesom.2089.nc"
+      - "fh.fesom.2090.nc"
+      - "fh.fesom.2091.nc"
+      - "fh.fesom.2092.nc"
+  
+  # Variable 7/13: tx_sur
+  - name: "FESOM - tx_sur (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "tx_sur.fesom.2080.nc"
+      - "tx_sur.fesom.2081.nc"
+      - "tx_sur.fesom.2082.nc"
+      - "tx_sur.fesom.2083.nc"
+      - "tx_sur.fesom.2084.nc"
+      - "tx_sur.fesom.2085.nc"
+      - "tx_sur.fesom.2086.nc"
+      - "tx_sur.fesom.2087.nc"
+      - "tx_sur.fesom.2088.nc"
+      - "tx_sur.fesom.2089.nc"
+      - "tx_sur.fesom.2090.nc"
+      - "tx_sur.fesom.2091.nc"
+      - "tx_sur.fesom.2092.nc"
+  
+  # Variable 8/13: ty_sur
+  - name: "FESOM - ty_sur (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "ty_sur.fesom.2080.nc"
+      - "ty_sur.fesom.2081.nc"
+      - "ty_sur.fesom.2082.nc"
+      - "ty_sur.fesom.2083.nc"
+      - "ty_sur.fesom.2084.nc"
+      - "ty_sur.fesom.2085.nc"
+      - "ty_sur.fesom.2086.nc"
+      - "ty_sur.fesom.2087.nc"
+      - "ty_sur.fesom.2088.nc"
+      - "ty_sur.fesom.2089.nc"
+      - "ty_sur.fesom.2090.nc"
+      - "ty_sur.fesom.2091.nc"
+      - "ty_sur.fesom.2092.nc"
+  
+  # Variable 9/13: MLD2
+  - name: "FESOM - MLD2 (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "MLD2.fesom.2080.nc"
+      - "MLD2.fesom.2081.nc"
+      - "MLD2.fesom.2082.nc"
+      - "MLD2.fesom.2083.nc"
+      - "MLD2.fesom.2084.nc"
+      - "MLD2.fesom.2085.nc"
+      - "MLD2.fesom.2086.nc"
+      - "MLD2.fesom.2087.nc"
+      - "MLD2.fesom.2088.nc"
+      - "MLD2.fesom.2089.nc"
+      - "MLD2.fesom.2090.nc"
+      - "MLD2.fesom.2091.nc"
+      - "MLD2.fesom.2092.nc"
+  
+  # Variable 10/13: m_ice
+  - name: "FESOM - m_ice (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "m_ice.fesom.2080.nc"
+      - "m_ice.fesom.2081.nc"
+      - "m_ice.fesom.2082.nc"
+      - "m_ice.fesom.2083.nc"
+      - "m_ice.fesom.2084.nc"
+      - "m_ice.fesom.2085.nc"
+      - "m_ice.fesom.2086.nc"
+      - "m_ice.fesom.2087.nc"
+      - "m_ice.fesom.2088.nc"
+      - "m_ice.fesom.2089.nc"
+      - "m_ice.fesom.2090.nc"
+      - "m_ice.fesom.2091.nc"
+      - "m_ice.fesom.2092.nc"
+  
+  # Variable 11/13: a_ice
+  - name: "FESOM - a_ice (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "a_ice.fesom.2080.nc"
+      - "a_ice.fesom.2081.nc"
+      - "a_ice.fesom.2082.nc"
+      - "a_ice.fesom.2083.nc"
+      - "a_ice.fesom.2084.nc"
+      - "a_ice.fesom.2085.nc"
+      - "a_ice.fesom.2086.nc"
+      - "a_ice.fesom.2087.nc"
+      - "a_ice.fesom.2088.nc"
+      - "a_ice.fesom.2089.nc"
+      - "a_ice.fesom.2090.nc"
+      - "a_ice.fesom.2091.nc"
+      - "a_ice.fesom.2092.nc"
+  
+  # Variable 12/13: uice
+  - name: "FESOM - uice (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "uice.fesom.2080.nc"
+      - "uice.fesom.2081.nc"
+      - "uice.fesom.2082.nc"
+      - "uice.fesom.2083.nc"
+      - "uice.fesom.2084.nc"
+      - "uice.fesom.2085.nc"
+      - "uice.fesom.2086.nc"
+      - "uice.fesom.2087.nc"
+      - "uice.fesom.2088.nc"
+      - "uice.fesom.2089.nc"
+      - "uice.fesom.2090.nc"
+      - "uice.fesom.2091.nc"
+      - "uice.fesom.2092.nc"
+  
+  # Variable 13/13: vice
+  - name: "FESOM - vice (2080-2092)"
+    remote_base: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom"
+    local_dir: "/scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom/"
+    files:
+      - "vice.fesom.2080.nc"
+      - "vice.fesom.2081.nc"
+      - "vice.fesom.2082.nc"
+      - "vice.fesom.2083.nc"
+      - "vice.fesom.2084.nc"
+      - "vice.fesom.2085.nc"
+      - "vice.fesom.2086.nc"
+      - "vice.fesom.2087.nc"
+      - "vice.fesom.2088.nc"
+      - "vice.fesom.2089.nc"
+      - "vice.fesom.2090.nc"
+      - "vice.fesom.2091.nc"
+      - "vice.fesom.2092.nc"
+
+# ============================================================================
+# Transfer Summary
+# ============================================================================
+# Case:         TCo319-DART-ssp585d-gibbs-charn
+# Years:        2080 to 2092 (13 years)
+# Variables:    13
+# Months/year:  0
+# Files checked: 169
+# Files found:   169 (included in config)
+# Files missing: 0 (skipped)
+#
+# Source:       /work/ab0995/ICCP_AWI_hackthon_2025/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom
+# Destination:  /scratch/awicm3-TCo319/TCo319-DART-ssp585d-gibbs-charn/outdata/fesom
+#
+# File pattern: <variable>.fesom.<year>_<month>.nc
+# Example:      wm.fesom.2092_10.nc
+#
+# ============================================================================
+# To transfer these files:
+# ============================================================================
+# 1. Review this file
+# 2. Edit uftp_transfer_with_verify.sh:
+#    - Set CONFIG_FILE="transfer_config_TCo319-DART-2080C_FESOM.yaml"
+#    - Set UFTP_USER and UFTP_KEY
+# 3. Run: ./uftp_transfer_with_verify.sh
+#
+# Or manually specify config file:
+#    sed -i 's/CONFIG_FILE=.*/CONFIG_FILE="transfer_config_TCo319-DART-2080C_FESOM.yaml"/' uftp_transfer_with_verify.sh
+# ============================================================================
