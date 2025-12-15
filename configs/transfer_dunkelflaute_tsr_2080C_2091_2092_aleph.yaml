@@ -1,0 +1,39 @@
+# UFTP Transfer Configuration for Dunkelflaute Analysis
+# Transfer tsr (solar radiation) files for TCo1279-DART-2080C
+# Source: Aleph /scratch/awicm3/TCo1279-DART-2080C/outdata/oifs
+# Destination: Levante /work/ab0995/ICCP_AWI_hackthon_2025/TCo1279-DART-2080C/outdata/oifs
+# Years: 2091-2092
+# Variable: tsr
+# Generated: Mon Dec 15 14:17:09 CET 2025
+
+transfers:
+  - name: "TCo1279-DART-2080C tsr 2091-2092 from aleph"
+    local_base: "/scratch/awicm3/TCo1279-DART-2080C/outdata/oifs"
+    remote_dir: "/work/ab0995/ICCP_AWI_hackthon_2025/TCo1279-DART-2080C/outdata/oifs"
+    files:
+      # 2091
+      - "atm_reduced_3h_tsr_3h_209101-209101.nc"
+      - "atm_reduced_3h_tsr_3h_209102-209102.nc"
+      - "atm_reduced_3h_tsr_3h_209103-209103.nc"
+      - "atm_reduced_3h_tsr_3h_209104-209104.nc"
+      - "atm_reduced_3h_tsr_3h_209105-209105.nc"
+      - "atm_reduced_3h_tsr_3h_209106-209106.nc"
+      - "atm_reduced_3h_tsr_3h_209107-209107.nc"
+      - "atm_reduced_3h_tsr_3h_209108-209108.nc"
+      - "atm_reduced_3h_tsr_3h_209109-209109.nc"
+      - "atm_reduced_3h_tsr_3h_209110-209110.nc"
+      - "atm_reduced_3h_tsr_3h_209111-209111.nc"
+      - "atm_reduced_3h_tsr_3h_209112-209112.nc"
+      # 2092
+      - "atm_reduced_3h_tsr_3h_209201-209201.nc"
+      - "atm_reduced_3h_tsr_3h_209202-209202.nc"
+      - "atm_reduced_3h_tsr_3h_209203-209203.nc"
+      - "atm_reduced_3h_tsr_3h_209204-209204.nc"
+      - "atm_reduced_3h_tsr_3h_209205-209205.nc"
+      - "atm_reduced_3h_tsr_3h_209206-209206.nc"
+      - "atm_reduced_3h_tsr_3h_209207-209207.nc"
+      - "atm_reduced_3h_tsr_3h_209208-209208.nc"
+      - "atm_reduced_3h_tsr_3h_209209-209209.nc"
+      - "atm_reduced_3h_tsr_3h_209210-209210.nc"
+      - "atm_reduced_3h_tsr_3h_209211-209211.nc"
+      - "atm_reduced_3h_tsr_3h_209212-209212.nc"
